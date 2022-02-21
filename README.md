@@ -1,21 +1,14 @@
 # BtcProfits
 
-**TODO: Add description**
+Bybit用確定申告向け計算機
 
-## Installation
+## 使い方
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `btc_profits` to your list of dependencies in `mix.exs`:
+Bybitからは履歴のダウンロード。10000件を超える場合はメールで問い合わせが必要。（タイムゾーンに気をつけて前後1日確保しておくほうが安全）
+BTC価格は[ここ](http://nipper.work/btc/index.php?market=bitFlyer&coin=BTCJPY)から日足で取ってきて計算。
 
-```elixir
-def deps do
-  [
-    {:btc_profits, "~> 0.1.0"}
-  ]
-end
 ```
+$ iex -S mix
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/btc_profits](https://hexdocs.pm/btc_profits).
-
+iex(1)> BtcProfits.process("/path/to/profit_sheet", "/path/to/btc_price")
+```
